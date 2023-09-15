@@ -4,3 +4,8 @@
 - 🔭 **I created this project to make it easier for you to color and format your terminal**
 
 - 📫 If there are any problems with the project, tell me by email **aboodhabbash@gmail.com**
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=aboodhabbashx&show_icons=true&locale=en&layout=compact" alt="aboodhabbashx" /></p>
+
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=aboodhabbashx&show_icons=true&locale=en" alt="aboodhabbashx" /></p>
+
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=aboodhabbashx&" alt="aboodhabbashx" /></p>
