@@ -1,6 +1,6 @@
-package com.Abood.Colors;
+package com.ZColor;
 
-import com.Abood.format.ColorFormat;
+import com.ZColor.format.ColorFormatter;
 
 
 public class GradientColor {
@@ -18,6 +18,10 @@ public class GradientColor {
     }
 
     public String createGradientText(String text){
+
+        if (text == null || text.isEmpty())
+            throw new IllegalArgumentException("java.lang.String text is empty");
+
         StringBuilder builder =new StringBuilder();
 
         int textLength = text.length();
@@ -29,12 +33,16 @@ public class GradientColor {
             int green = (int) (this.green* (1 - gradientFactory));
             int blue = this.blue;
 
-            builder.append(ColorFormat.RGBFormat(red ,green,blue)).append(text.charAt(i));
+            builder.append(ColorFormatter.RGBFormat(red ,green,blue)).append(text.charAt(i));
         }
-        return builder +Color.RESET;
+        return builder + Color.RESET;
     }
 
     public String createGradientBackground(int r , int g ,int b ,String text) {
+
+        if (text == null || text.isEmpty())
+            throw new IllegalArgumentException("java.lang.String text is empty");
+
         StringBuilder builder =new StringBuilder();
 
         int textLength=text.length();
@@ -45,30 +53,26 @@ public class GradientColor {
             int red = (int) (r * gradientFactory);
             int green = (int) (g * (1 - gradientFactory));
 
-            builder.append(ColorFormat.BackgroundRGBFormat(red ,green, b)).append(text.charAt(i));
+            builder.append(ColorFormatter.backgroundRGBFormat(red ,green, b)).append(text.charAt(i));
         }
         return builder +createGradientText(text)+Color.RESET;
     }
 
     public String createGradientBackground(Color color ,String text) {
 
-        int[] numbers = ColorFormat.convertAnsiToRGB(color.color());
-        StringBuilder builder =new StringBuilder();
+        if (color ==null) throw new IllegalArgumentException("class Color is Null");
+        if (text.isEmpty()) throw new IllegalArgumentException("java.lang.String text is Empty");
 
-        int textLength=text.length();
-
-        for (int i = 0; i < textLength; i++) {
-            double gradientFactory = (double) i / (textLength - 1);
-
-            int red = (int) (numbers[0] * gradientFactory);
-            int green = (int) (numbers[1] * (1 - gradientFactory));
-
-            builder.append(ColorFormat.BackgroundRGBFormat(red ,green, numbers[2])).append(text.charAt(i));
-        }
-        return builder +Color.RESET;
+        int[] number = ColorFormatter.ansiToRGB(color.color());
+        return createGradientBackground(number[0],number[1],number[2],text);
     }
 
     public String getRGB() {
         return RGB;
+    }
+
+    @Override
+    public String toString() {
+        return "[%d,%d,%d]".formatted(red,green,blue);
     }
 }
