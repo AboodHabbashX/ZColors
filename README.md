@@ -15,6 +15,9 @@
 
 <h2 align="left">Futures</h2>
 - ⚡Convert from Hex format to ANSI format (ANSIFormatter)
+
 - ⚡Convert from ANSI format to Hex format (HexFormatter)
+  
 - ⚡now you can create Rainbow Text
+  
 - ⚡now you can create your own Colored text 
